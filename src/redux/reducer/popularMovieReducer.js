@@ -6,10 +6,11 @@ const initialState = {
     popularMovies: [],
     isLoading: true
 }
-
 export const popularMovieReducer = (state = initialState,action) => {
     let {GET_POPULAR_MOVIES} = actionType;
     let {type, payload} = action;
+
+    console.log(type,payload)
 
     switch (type){
         case GET_POPULAR_MOVIES:

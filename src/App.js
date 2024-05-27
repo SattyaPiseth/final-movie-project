@@ -8,8 +8,7 @@ import {Card} from "./components/Card";
 
 function App() {
     // receiving the global state
-    const {products,isLoading} = useSelector(state => state.productR)
-    console.log(products)
+    const {products,isLoading} = useSelector(state => state.productR);
     // making request
     const dispatch = useDispatch();
 
@@ -19,6 +18,9 @@ function App() {
         dispatch(fetchProducts())
 
     }, []);
+
+    console.log(products);
+    console.log(isLoading)
   return (
       <>
           <Navbar/>

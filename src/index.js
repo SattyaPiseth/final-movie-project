@@ -21,7 +21,7 @@ const router = createBrowserRouter([
                 index: true,element: <App/> // App component
             },
             {
-            path: "movies/popular", element: <PopularMovie/>
+            path: "popular-movie", element: <PopularMovie />
             }
         ]
     }

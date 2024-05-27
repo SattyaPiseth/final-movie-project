@@ -1,23 +1,25 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Navbar} from "../components/Navbar";
+import {fetchPopularMovie} from "../redux/action/popularMoviesAction";
 import {Loading} from "../components/Loading";
 import {MovieCard} from "../components/MovieCard";
-import {fetchPopularMovie} from "../redux/action/popularMoviesAction";
 
 export const PopularMovie = () => {
-    // receiving the global state
-    const {popularMovies,isLoading} = useSelector(state => state.popularMovieR);
-    // console.log(popularMovies)
-
     // making request
     const dispatch = useDispatch();
+
+    // receiving the global state
+    const {popularMovies,isLoading} = useSelector((state) => state.popularMovieR);
 
     // making a call to function (api request)
     useEffect(() => {
         // dispatching the action
         dispatch(fetchPopularMovie(1));
     }, [dispatch]);
+
+    console.log(popularMovies);
+    console.log(isLoading)
     return (
         <>
             <Navbar/>
@@ -26,8 +28,11 @@ export const PopularMovie = () => {
                     {isLoading ? (
                         <Loading/>
                     ) : (
-                        popularMovies.map(movie => <MovieCard movie={movie}/>)
-                    )}
+                       popularMovies.map(
+                           (movie) =>
+                                 <MovieCard key={movie.id} movie={movie}/>
+                       ))
+                    }
                 </section>
             </main>
         </>

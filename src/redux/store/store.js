@@ -10,5 +10,4 @@ const middleware = [thunk];
 /**
  * store is created using createStore function which takes two arguments rootReducer and middleware
  */
-export const store = legacy_createStore(rootReducer,
-    compose(applyMiddleware(...middleware)))
+export const store = legacy_createStore(rootReducer, compose(applyMiddleware(...middleware)));

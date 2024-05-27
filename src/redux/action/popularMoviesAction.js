@@ -9,10 +9,9 @@ export const fetchPopularMovie = (page) => {
     return(dispatch) =>{
         axios(`${POPULAR_MOVIE_URL}&language=en-US&page=${page}`)
             .then((response) => dispatch({
-                type: actionType.GET_POPULAR_MOVIE,
-                payload: response.data
-            },console.log(response.data))
-            )
+                type: actionType.GET_POPULAR_MOVIES,
+                payload: response.data.results
+            }))
             .catch((error) => console.error(error));
     }
 }
