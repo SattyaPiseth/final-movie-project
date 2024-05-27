@@ -3,11 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {MainLayout} from "./components/Layout/MainLayout";
+import {NotFound} from "./components/NotFound";
+import {Provider} from "react-redux";
+import {store} from "./redux/store/store";
+import {PopularMovie} from "./pages/PopularMovie";
+
+// Route Configuration
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <MainLayout/>, // MainLayout component
+        errorElement: <NotFound/>, // NotFound component
+        children: [
+            {
+                index: true,element: <App/> // App component
+            },
+            {
+            path: "movies/popular", element: <PopularMovie/>
+            }
+        ]
+    }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+        <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>
 );
 
