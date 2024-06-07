@@ -9,7 +9,6 @@ import {NotFound} from "./components/NotFound";
 import {Provider} from "react-redux";
 import {store} from "./redux/store/store";
 import {PopularMovie} from "./pages/PopularMovie";
-
 // Route Configuration
 const router = createBrowserRouter([
     {
@@ -30,9 +29,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-        <RouterProvider router={router}/>
-    </Provider>
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
   </React.StrictMode>
 );
 

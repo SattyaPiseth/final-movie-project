@@ -23,16 +23,16 @@ export const PopularMovie = () => {
     return (
         <>
             <Navbar/>
-            <main className='mt-20'>
-                <section className='container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+            <main className='mt-10'>
+                <section
+                    className='pt-10 container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6'>
                     {isLoading ? (
                         <Loading/>
                     ) : (
-                       popularMovies.map(
-                           (movie) =>
-                                 <MovieCard key={movie.id} movie={movie}/>
-                       ))
-                    }
+                        popularMovies.map(movie => (
+                            <MovieCard key={movie.id} movie={movie}/>
+                        ))
+                    )}
                 </section>
             </main>
         </>
